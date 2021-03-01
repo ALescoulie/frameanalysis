@@ -1,7 +1,8 @@
-import analysisclass/analysis
-import analysisclass/selections/selection.py
-import sys
 import os
+import sys
+import analysisclass/analysis
+import analysisclass/selections/io.py
+import analysisclass/selections/selection.py
 
 
 if __name__ == '__main__':
