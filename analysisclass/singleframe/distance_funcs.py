@@ -1,7 +1,6 @@
 import MDAnalysis as mda
 from MDAnalysis.analysis.distances import distance_array
 from MDAnalysis.analysis.distances import dist
-from selectionfuncs import *
 
 
 def dist_calc(coordinates_a, coordinates_b):
