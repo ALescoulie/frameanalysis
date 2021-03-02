@@ -1,21 +1,21 @@
 import os
 import sys
-import analysisclass/analysis
-import analysisclass/selections/io.py
-import analysisclass/selections/selection.py
+from analysisclass.analysis.py import *
+from analysisclass.selections.io.py import *
+from analysisclass.selections.selectionfuncs.py import *
 
 
 if __name__ == '__main__':
     # Accepting arguments
-    #input_path = str(sys.argv[0])
-    #output_path = str(sys.argv[1])
+    input_path = str(sys.argv[1])
+    output_path = str(sys.argv[2])
     input_test = 'template_input'
 
     # Getting inputs
     input_variables = read_input(input_test)
 
     # Defining universe
-    #unv = build_universe(input_variables['topology'], input_variables['trajectory'])
+    unv = build_universe(input_variables['topology'], input_variables['trajectory'])
 
     # Running analysis
     #analysis_output = analysis.FrameAnalysis(unv, input_variables['residues'], input_variables['functions'])
