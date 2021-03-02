@@ -1,8 +1,8 @@
-def read_input(path):
-    # Reading input
-    input_file = open(path, 'r')
-    input_data = input_file.readline()
+def remove_return(string):
+    ret_line = string.split('\n')
+    return ret_line[0]
 
+def read_input(path):
     # Input data structures
     section = 0
     topology_path = ''
@@ -14,6 +14,7 @@ def read_input(path):
     stop = None
     step = None
     out_dir = ''
+    
     with open(path, 'r') as input_data:
         # Data pulled from list
         for line in input_data:
@@ -36,11 +37,11 @@ def read_input(path):
                 if 'topology_path' in line:
                     input_line = line
                     text = input_line.split('=')
-                    topology_path = text[1]
+                    topology_path = remove_return(text[1])
                 elif 'trajectory_path' in line:
                     input_line = line
                     text = input_line.split('=')
-                    trajectory_path.append(text[1])
+                    trajectory_path.append(remove_return(text[1]))
 
             elif section == 1 and '1:' not in line:
                 input_line = line
