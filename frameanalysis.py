@@ -1,8 +1,6 @@
 import os
 import sys
 from analysisclass.analysis.py import *
-from analysisclass.selections.io.py import *
-from analysisclass.selections.selectionfuncs.py import *
 
 
 if __name__ == '__main__':
@@ -18,4 +16,4 @@ if __name__ == '__main__':
     unv = build_universe(input_variables['topology'], input_variables['trajectory'])
 
     # Running analysis
-    #analysis_output = analysis.FrameAnalysis(unv, input_variables['residues'], input_variables['functions'])
+    analysis_output = analysis.FrameAnalysis(unv, input_variables['residues'], input_variables['functions'])
