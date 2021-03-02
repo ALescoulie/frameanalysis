@@ -1,6 +1,7 @@
 from MDAnalysis.analysis.base import AnalysisBase
-from singleframe/framefuncs import *
-from selections/selectionfuncs import *
+from analysisclass.singleframe.framedist import *
+from analysisclass.selection.selectionfuncs import *
+from analysisclass.selection.io import *
 
 
 class FrameAnalysis(AnalysisBase):
