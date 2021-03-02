@@ -16,4 +16,5 @@ if __name__ == '__main__':
     unv = build_universe(input_variables['topology'], input_variables['trajectory'])
 
     # Running analysis
-    analysis_output = analysis.FrameAnalysis(unv, input_variables['residues'], input_variables['functions'])
+    analysis_output = analysis.FrameAnalysis(unv, input_variables['residues'], input_variables['functions']) \
+        .run(start=input_variables['start'], step=input_variables['step'], stop=input_variables['stop'])
