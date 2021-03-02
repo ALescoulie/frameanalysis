@@ -1,7 +1,7 @@
 from MDAnalysis.analysis.base import AnalysisBase
-from analysisclass.singleframe.framedist import *
-from analysisclass.selection.selectionfuncs import *
-from analysisclass.selection.io import *
+from singleframe.distances import *
+from selection.selectionfuncs import *
+from selection.io import *
 
 
 class FrameAnalysis(AnalysisBase):
@@ -16,6 +16,8 @@ class FrameAnalysis(AnalysisBase):
             Keys are string of the respective residue numbers punctuated by a hyphen ex: '121-145'
             dist_calc outputs 2d numpy array with dimensions equal to atoms of each residue.
             Each frame will output an array of the distances of calculated for the given reside pairs"""
+        # Time list
+        self.time_list = []
         # Distance array
         if self._fxn[0] is True:
             self.res_dists, self.res_keys = build_reslist_dict(self._rpl)
@@ -33,6 +35,8 @@ class FrameAnalysis(AnalysisBase):
             self.cg_dists, self.cg_keys = build_reslist_dict(self._rpl)
 
     def _single_frame(self):
+        # Saving time
+        self.time_list.append(self._unv.trajectory.time)
         # Only running functions specified in input file
         if self._fxn[0] is True:
             # Iterating through index pairs and returning distance array to dictionary

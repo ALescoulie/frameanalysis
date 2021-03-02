@@ -2,6 +2,7 @@ def remove_return(string):
     ret_line = string.split('\n')
     return ret_line[0]
 
+
 def read_input(path):
     # Input data structures
     section = 0
@@ -18,7 +19,6 @@ def read_input(path):
     with open(path, 'r') as input_data:
         # Data pulled from list
         for line in input_data:
-            print(line)
             # Establishing where loop in input file
             if '1:' in line:
                 section = 1
@@ -53,7 +53,6 @@ def read_input(path):
             elif section == 2 and '2:' not in line:
                 input_line = line
                 text = input_line.split('=')
-                print(text)
                 setting = [None]
                 setting[0] = text[1]
                 if setting[0] == 'False\n':
@@ -83,7 +82,6 @@ def read_input(path):
             elif section == 4 and '4:' not in line:
                 input_line = line
                 text = input_line.split('=')
-                print(text)
                 out_dir = text[1]
 
     # Output as data
