@@ -1,0 +1,17 @@
+0:UNIVERSE_INPUT
+topology_path=testtop.psf
+trajectory_path=testtraj.dcd
+1:RESID_NUMBER_PAIRS
+1 5
+3 4
+2:SINGlE_FRAME_ANALYSIS
+dist_array=False
+ca_dist=True
+cm_dist=False
+cg_dist=False
+3:RUN_SETTINGS
+start=0
+stop=40
+step=1
+4:OUTPUT
+output_dir=md_out
