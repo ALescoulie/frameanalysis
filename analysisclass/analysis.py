@@ -8,7 +8,7 @@ class FrameAnalysis(AnalysisBase):
     def __init__(self, universe, res_pairs, func_set):
         super(FrameAnalysis, self).__init__(universe.trajectory)
         self._unv = universe        # Universe being analyzed
-        self._rpl = res_pairs      # First list of int residue numbers
+        self._rpl = res_pairs       # First list of int residue numbers
         self._fxn = func_set        # Bool values enabling functions
 
     def _prepare(self):
