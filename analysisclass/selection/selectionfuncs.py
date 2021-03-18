@@ -23,7 +23,6 @@ def select_resid_ca(res_num, universe):
 
 def save_resid_cm(res_num, universe):
     res_atoms = select_resnum_atoms(res_num, universe)
-    coords = np.zeros(3, dtype=np.float32)
     coords = res_atoms.center_of_mass()
     return coords
 
@@ -37,7 +36,6 @@ def save_resid_cg(res_num, universe):
 
 # Writes atom group coordinates into numpy array
 def save_atom_coords(atom_group):
-    coords = np.zeros(((len(atom_group) - 1), 3), dtype=np.float32)
     coords = atom_group.positions
     return coords
 
