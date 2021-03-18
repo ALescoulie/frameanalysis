@@ -28,6 +28,22 @@ class SelectionTest(unittest.TestCase):
         resid_coords = save_resnum_coords(1, unv)
         self.assertEqual(np.shape(resid_coords), (19, 3))
 
+    def test_build_reslist_dict0(self):
+        resid_list = [[1, 2], [3, 4], [6, 7]]
+        resid_dict, resid_keys = build_reslist_dict(resid_list)
+
+        # Testing key list
+        self.assertEqual(len(resid_keys), len(resid_list))
+        self.assertEqual(resid_keys[0], '1-2')
+        self.assertEqual(resid_keys[1], '3-4')
+        self.assertEqual(resid_keys[2], '6-7')
+
+        # Testing dictionary keys
+        dict_keys = []
+        for key in resid_dict:
+            dict_keys.append(key)
+        self.assertEqual(dict_keys, resid_keys)
+
 
 if __name__ == '__main__':
     unittest.main()
