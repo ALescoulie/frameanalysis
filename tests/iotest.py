@@ -25,6 +25,14 @@ class TestIOFunctions(unittest.TestCase):
         self.assertEqual(input1['step'], 2)
         self.assertEqual(input1['out_dir'], 'md_out')
 
+    def test_write_dataframe(self):
+        results = {'1-2': [0, 1, 2, 3, 4]}
+        time_list = [0, 1, 2, 3, 4]
+        data = write_dataframe(results, time_list)
+
+    def test_write_csv(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

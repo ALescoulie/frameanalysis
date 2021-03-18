@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def remove_return(string):
     ret_line = string.split('\n')
     return ret_line[0]
@@ -94,3 +97,18 @@ def read_input(path):
                   'step': step,
                   'out_dir': out_dir}
     return input_vars
+
+
+def write_dataframe(result_dict, time_list):
+    column_key = []
+    result_dict['Time'] = time_list
+    for key in result_dict:
+        column_key.append(key)
+
+    result_frame = pd.DataFrame(result_dict, columns=column_key)
+    return result_frame
+
+
+def write_csv(dataframe, out_dir):
+    dataframe.to_csv(out_dir, header=True)
+    return

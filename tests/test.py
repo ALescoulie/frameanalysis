@@ -1,5 +1,5 @@
 from selectiontest import *
-from iotests import *
+from iotest import *
 from analysistest import *
 import unittest
 

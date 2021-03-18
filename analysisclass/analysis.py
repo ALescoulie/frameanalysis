@@ -8,7 +8,7 @@ class FrameAnalysis(AnalysisBase):
     def __init__(self, universe, res_pairs, func_set):
         super(FrameAnalysis, self).__init__(universe.trajectory)
         self._unv = universe        # Universe being analyzed
-        self._rpl = res_pairs      # First list of int residue numbers
+        self._rpl = res_pairs       # First list of int residue numbers
         self._fxn = func_set        # Bool values enabling functions
 
     def _prepare(self):
@@ -65,3 +65,16 @@ class FrameAnalysis(AnalysisBase):
                 self.cord1 = save_resid_cg(self._rpl[key][0], self._unv)
                 self.cord2 = save_resid_cg(self._rpl[key][1], self._unv)
                 self.cg_dists[self.cg_keys[key]].append(dist_calc(self.cord1, self.cord2))
+
+    def _conclude(self):
+        if self._fxn[0] is True:
+            pass
+
+        if self._fxn[1] is True:
+            self.ca_data = write_dataframe(self.ca_dists, self.time_list)
+
+        if self._fxn[2] is True:
+            self.cm_data = write_dataframe(self.cm_dists, self.time_list)
+
+        if self._fxn[3] is True:
+            self.cg_data = write_dataframe(self.cg_dists, self.time_list)
