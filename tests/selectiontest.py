@@ -18,7 +18,6 @@ class SelectionTest(unittest.TestCase):
         res_group = select_resnum_atoms(2, unv)
         self.assertEqual(len(res_group), 24)
 
-<<<<<<< HEAD
     def test_save_resnum_coords(self):
         unv = build_universe('testtop.psf', 'testtraj.dcd')
         ca_coords = save_ca_coords(unv, 1)
@@ -26,8 +25,3 @@ class SelectionTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-=======
-
-if __name__ == '__main__':
-    unittest.main()
->>>>>>> origin/main
