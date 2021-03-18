@@ -55,6 +55,6 @@ def build_reslist_dict(res_pair_list):
     res_pairs = {}
     for respair in res_pair_list:
         key_name = str(respair[0]) + '-' + str(respair[1])
-        res_pairs[key_name] = None
+        res_pairs[key_name] = []
     res_keys = list(res_pairs.keys())
     return res_pairs, res_keys
