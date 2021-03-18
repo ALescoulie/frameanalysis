@@ -20,7 +20,7 @@ class SelectionTest(unittest.TestCase):
 
     def test_save_resnum_coords(self):
         unv = build_universe('testtop.psf', 'testtraj.dcd')
-        ca_coords = save_ca_coords(unv, 1)
+        ca_coords = save_ca_coords(1, unv)
 
 
 if __name__ == '__main__':
