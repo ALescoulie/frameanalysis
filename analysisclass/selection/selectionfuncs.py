@@ -16,7 +16,7 @@ def select_resnum_atoms(res_num, universe):
 
 # Selects residue alpha carbon from its integer residue number
 def select_resid_ca(res_num, universe):
-    selection = 'resid + ' + str(res_num) + 'and name CA'
+    selection = 'resid ' + str(res_num) + ' and name CA'
     res_ca = universe.select_atoms(selection)
     return res_ca
 
@@ -29,7 +29,6 @@ def save_resid_cm(res_num, universe):
 
 def save_resid_cg(res_num, universe):
     res_atoms = select_resnum_atoms(res_num, universe)
-    coords = np.zeros(3, dtype=np.float32)
     coords = res_atoms.center_of_geometry()
     return coords
 

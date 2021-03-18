@@ -18,9 +18,15 @@ class SelectionTest(unittest.TestCase):
         res_group = select_resnum_atoms(2, unv)
         self.assertEqual(len(res_group), 24)
 
-    def test_save_resnum_coords(self):
+    def test_save_resnum_coords0(self):
         unv = build_universe('testtop.psf', 'testtraj.dcd')
-        ca_coords = save_ca_coords(unv, 1)
+        ca_coords = save_ca_coords(1, unv)
+        self.assertEqual(np.shape(ca_coords), (1, 3))
+
+    def test_save_resnum_coords1(self):
+        unv = build_universe('testtop.psf', 'testtraj.dcd')
+        resid_coords = save_resnum_coords(1, unv)
+        self.assertEqual(np.shape(resid_coords), (19, 3))
 
 
 if __name__ == '__main__':
