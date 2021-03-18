@@ -1,7 +1,7 @@
 from MDAnalysis.analysis.base import AnalysisBase
-from singleframe.distances import *
-from selection.selectionfuncs import *
-from selection.io import *
+from analysisclass.selection.io import *
+from analysisclass.selection.selectionfuncs import *
+from analysisclass.singleframe.distances import *
 
 
 class FrameAnalysis(AnalysisBase):
@@ -57,11 +57,11 @@ class FrameAnalysis(AnalysisBase):
             for key in range(len(self.ca_keys)):
                 self.cord1 = save_resid_cm(self._rpl[key][0], self._unv)
                 self.cord2 = save_resid_cm(self._rpl[key][1], self._unv)
-                self.ca_dists[self.res_keys[key]].append(atom_dist(self.cord1, self.cord2))
+                self.cm_dists[self.res_keys[key]].append(atom_dist(self.cord1, self.cord2))
 
         if self._fxn[3] is True:
             # Iterating through index pairs and returning residue center of geometry distance
             for key in range(len(self.ca_keys)):
                 self.cord1 = save_resid_cg(self._rpl[key][0], self._unv)
                 self.cord2 = save_resid_cg(self._rpl[key][1], self._unv)
-                self.ca_dists[self.res_keys[key]].append(atom_dist(self.cord1, self.cord2))
+                self.cg_dists[self.res_keys[key]].append(atom_dist(self.cord1, self.cord2))
