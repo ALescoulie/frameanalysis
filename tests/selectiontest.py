@@ -1,4 +1,5 @@
 import unittest
+import numpy as np
 from analysisclass.selection.selectionfuncs import *
 
 

@@ -1,5 +1,4 @@
 import MDAnalysis as mda
-import numpy as np
 
 
 def build_universe(topology_path, *args):
