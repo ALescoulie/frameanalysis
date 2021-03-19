@@ -25,11 +25,14 @@ if __name__ == '__main__':
     elif input_variables['functions'][1]:
         out_name = input_variables['out_dir'] + '/' + 'ca.csv'
         write_csv(analysis_output.ca_keys, out_name)
+        save_figure(out_name)
 
     elif input_variables['functions'][2]:
         out_name = input_variables['out_dir'] + '/' + 'cm.csv'
         write_csv(analysis_output.cm_keys, out_name)
+        save_figure(out_name)
 
     elif input_variables['functions'][3]:
         out_name = input_variables['out_dir'] + '/' + 'cg.csv'
         write_csv(analysis_output.cg_keys, out_name)
+        save_figure(out_name)

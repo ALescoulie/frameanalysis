@@ -28,6 +28,7 @@ class TestFullAnalysis(unittest.TestCase):
         # Testing outputs
         out_name = input_settings['out_dir'] + '/' + 'ca.csv'
         write_csv(output.ca_data, out_name)
+        save_figure(out_name)
 
         with open(out_name, 'r') as outfile:
             out_data = outfile.readlines()

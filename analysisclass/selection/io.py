@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def remove_return(string):
@@ -119,4 +120,39 @@ def write_dataframe(result_dict, time_list):
 
 def write_csv(dataframe, out_dir):
     dataframe.to_csv(out_dir, header=True)
+    return
+
+
+def save_figure(csv_path):
+    def read_csv(path):
+        file_headers = []
+
+        with open(path, 'r') as datafile:
+            data = datafile.readlines()
+            header_line = data[0]
+            if '\n' in header_line:
+                header_line = remove_return(header_line)
+
+            items = header_line.split(',')
+            for item in items:
+                file_headers.append(item)
+
+        file_headers = file_headers[1:]
+        csv_data = np.genfromtxt(path, delimiter=',', skip_header=1)
+        return csv_data, file_headers
+
+    def build_figure(data, figure_headers, png_name):
+        for col in range(0, len(headers) - 1):
+            fig = plt.plot(data[:, col + 1], label=figure_headers[col])
+            plt.legend()
+
+        plt.xlabel('Time (ps)')
+        plt.ylabel('Pair Distance (angstrom)')
+        plt.savefig(png_name, dpi=600)
+        return
+
+    dist_data, headers = read_csv(csv_path)
+    csv_path = csv_path.split('.')
+    file_name = csv_path[0] + '.png'
+    build_figure(dist_data, headers, file_name)
     return
