@@ -9,5 +9,5 @@ Create an input.in file based on the template in the repository. Residue pairs a
 
 To run program
 ```bash
-python frameanalysis.py input.in
+python res_dist.py input.in
 ```
