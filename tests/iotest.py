@@ -29,6 +29,7 @@ class TestIOFunctions(unittest.TestCase):
         results = {'1-2': [0, 1, 2, 3, 4]}
         time_list = [0, 1, 2, 3, 4]
         data = write_dataframe(results, time_list)
+        print(data)
 
     def test_write_csv(self):
         pass
