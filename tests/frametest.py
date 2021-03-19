@@ -35,7 +35,7 @@ class TestFullAnalysis(unittest.TestCase):
             for line in out_data:
                 if 'Time' in line:
                     line = line.split(',')
-                    self.assertEqual(line, ['1-5', '3-4', 'Time'])
+                    self.assertEqual(line, ['','1-5', '3-4', 'Time\n'])
 
 
 if __name__ == '__main__':

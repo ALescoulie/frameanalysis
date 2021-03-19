@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def remove_return(string):
@@ -105,7 +106,14 @@ def write_dataframe(result_dict, time_list):
     for key in result_dict:
         column_key.append(key)
 
-    result_frame = pd.DataFrame(result_dict, columns=column_key)
+    data = np.zeros((len(time_list), len(column_key)))
+
+    for header in range(len(column_key)):
+        key = column_key[header]
+        for i in range(data.shape[0]):
+            data[i, header] = result_dict[key][i]
+
+    result_frame = pd.DataFrame(data, columns=column_key)
     return result_frame
 
 
