@@ -5,7 +5,7 @@ Trajectory analyzer build in [MDAnalysis](https://www.mdanalysis.org) for measur
 Responsible for the selection of residue atoms and coordinates and analysis templates.
 
 ## Use
-Create an input.in file based on the template in the repository. Residue pairs are separated by a space, and all other values are separated by an '=' sign. In '3:RUN_SETTINGS' booleans must be capitalized as is seen in python ex 'False'. frameanalysis.py references the functions each on their own files in the analysisclass folder, while res_dist.py contains all functions on a sinlge script for greater portability.
+Create an input.in file based on the template in the repository. Residue pairs are separated by a space, and all other values are separated by an '=' sign. In '3:RUN_SETTINGS' booleans must be capitalized as is seen in python ex 'False'. frameanalysis.py references the functions each on their own files in the analysisclass folder, while res_dist.py contains all functions on a single script for greater portability.
 
 To run program
 ```bash

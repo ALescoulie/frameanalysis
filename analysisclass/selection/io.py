@@ -117,6 +117,10 @@ def write_dataframe(result_dict, time_list):
     result_frame = pd.DataFrame(data, columns=column_key)
     return result_frame
 
+#TODO finish time array function
+def write_time_array(result_dict, time_list):
+
+
 
 def write_csv(dataframe, out_dir):
     dataframe.to_csv(out_dir, header=True)

@@ -17,6 +17,7 @@ if __name__ == '__main__':
     analysis_output = FrameAnalysis(unv, input_variables['residues'], input_variables['functions']) \
         .run(start=input_variables['start'], step=input_variables['step'], stop=input_variables['stop'])
 
+    # TODO fix writing outputs
     # Writing output
     if input_variables['functions'][0]:
         pass

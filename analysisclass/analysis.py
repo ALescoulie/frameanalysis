@@ -43,7 +43,7 @@ class FrameAnalysis(AnalysisBase):
             for key in range(len(self.res_keys)):
                 self.cord1 = save_resnum_coords(self._rpl[key][0], self._unv)
                 self.cord2 = save_resnum_coords(self._rpl[key][1], self._unv)
-                self.res_dists[self.res_keys[key]].append(dist_calc(self.cord1, self.cord2))
+                self.res_dists[self.res_keys[key]].append(dist_vec(self.cord1, self.cord2))
 
         if self._fxn[1] is True:
             # Iterating through index pairs and returning alpha carbon distance
@@ -68,7 +68,9 @@ class FrameAnalysis(AnalysisBase):
 
     def _conclude(self):
         if self._fxn[0] is True:
-            pass
+            self.res_data = []
+            for key in self.res_keys:
+                self.res_data.append(self.res_dists[key])
 
         if self._fxn[1] is True:
             self.ca_data = write_dataframe(self.ca_dists, self.time_list)

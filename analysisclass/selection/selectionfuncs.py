@@ -1,6 +1,7 @@
 import MDAnalysis as mda
 
 
+# TODO rewrite to take list of trajecotry paths
 def build_universe(topology_path, *args):
     universe = mda.Universe(topology_path, args)
     return universe
