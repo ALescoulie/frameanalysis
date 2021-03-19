@@ -5,7 +5,6 @@ from analysisclass.analysis import *
 if __name__ == '__main__':
     # Accepting arguments
     input_path = str(sys.argv[1])
-    output_path = str(sys.argv[2])
     input_test = 'template_input'
 
     # Getting inputs

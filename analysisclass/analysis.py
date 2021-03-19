@@ -35,7 +35,7 @@ class FrameAnalysis(AnalysisBase):
             self.cg_dists, self.cg_keys = build_reslist_dict(self._rpl)
 
     def _single_frame(self):
-        # Saving time
+        # Saving time values
         self.time_list.append(self._unv.trajectory.time)
         # Only running functions specified in input file
         if self._fxn[0] is True:
@@ -53,7 +53,7 @@ class FrameAnalysis(AnalysisBase):
                 self.ca_dists[self.ca_keys[key]].append(dist_calc(self.cord1, self.cord2))
 
         if self._fxn[2] is True:
-            # Iterating through index pairs and returning resid center of mass distance
+            # Iterating through index pairs and returning residue center of mass distance
             for key in range(len(self.cm_keys)):
                 self.cord1 = save_resid_cm(self._rpl[key][0], self._unv)
                 self.cord2 = save_resid_cm(self._rpl[key][1], self._unv)
