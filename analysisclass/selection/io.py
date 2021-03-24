@@ -152,7 +152,7 @@ def save_figure(csv_path):
 
         plt.xlabel('Time (ps)')
         plt.ylabel('Pair Distance (angstrom)')
-        plt.savefig(png_name, dpi=600)
+        plt.savefig(png_name, dpi=1200)
         return
 
     dist_data, headers = read_csv(csv_path)
@@ -160,3 +160,7 @@ def save_figure(csv_path):
     file_name = csv_path[0] + '.png'
     build_figure(dist_data, headers, file_name)
     return
+
+
+def write_spat_in(residue_coords, out_dir):
+    pass
