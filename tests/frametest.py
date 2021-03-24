@@ -5,9 +5,9 @@ from analysisclass.analysis import *
 class TestFullAnalysis(unittest.TestCase):
     def test_frame_analysis0(self):
         # Getting and testing input
-        input_settings = read_input('test2.in')
-        self.assertEqual(input_settings['topology'], 'testtop.psf')
-        self.assertEqual(input_settings['trajectory'], ['testtraj.dcd'])
+        input_settings = read_input('testfiles/test2.in')
+        self.assertEqual(input_settings['topology'], 'testfiles/testtop.psf')
+        self.assertEqual(input_settings['trajectory'], ['testfiles/testtraj.dcd'])
         self.assertEqual(input_settings['residues'], [[1, 5], [3, 4]])
         self.assertEqual(input_settings['functions'], [False, True, False, False])
         self.assertEqual(input_settings['start'], 0)
@@ -40,11 +40,11 @@ class TestFullAnalysis(unittest.TestCase):
 
     def test_frame_analysis1(self):
         # Getting and testing input
-        input_settings = read_input('test3.in')
-        self.assertEqual(input_settings['topology'], 'testtop.psf')
-        self.assertEqual(input_settings['trajectory'], ['testtraj.dcd'])
+        input_settings = read_input('testfiles/test3.in')
+        self.assertEqual(input_settings['topology'], 'testfiles/testtop.psf')
+        self.assertEqual(input_settings['trajectory'], ['testfiles/testtraj.dcd'])
         self.assertEqual(input_settings['residues'], [[1, 2], [3, 5], [2, 7], [8, 2]])
-        self.assertEqual(input_settings['functions'], [True, False, False, False])
+        self.assertEqual(input_settings['functions'], [False, False, True, False])
         self.assertEqual(input_settings['start'], 0)
         self.assertEqual(input_settings['stop'], 50)
         self.assertEqual(input_settings['step'], 1)
@@ -57,9 +57,9 @@ class TestFullAnalysis(unittest.TestCase):
             .run(start=input_settings['start'], step=input_settings['step'], stop=input_settings['stop'])
 
         self.assertEqual(len(output.time_list), 50)
-        self.assertEqual(output.ca_keys, ['1-2', '3-5', '2-7', '8-2'])
-        out_name = input_settings['out_dir'] + '/' + 'res_dist.csv'
-        write_csv(output.res_data, out_name)
+        self.assertEqual(output.cm_keys, ['1-2', '3-5', '2-7', '8-2'])
+        out_name = input_settings['out_dir'] + '/' + 'cm_dist.csv'
+        write_csv(output.cm_data, out_name)
         save_figure(out_name)
 
         with open(out_name, 'r') as outfile:

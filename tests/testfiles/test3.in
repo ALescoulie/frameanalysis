@@ -1,15 +1,15 @@
 0:UNIVERSE_INPUT
-topology_path=testtop.psf
-trajectory_path=testtraj.dcd
+topology_path=testfiles/testtop.psf
+trajectory_path=testfiles/testtraj.dcd
 1:RESID_NUMBER_PAIRS
 1 2
 3 5
 2 7
 8 2
 2:SINGlE_FRAME_ANALYSIS
-dist_array=True
+dist_array=False
 ca_dist=False
-cm_dist=False
+cm_dist=True
 cg_dist=False
 3:RUN_SETTINGS
 start=0

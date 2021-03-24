@@ -119,7 +119,7 @@ def write_dataframe(result_dict, time_list):
 
 #TODO finish time array function
 def write_time_array(result_dict, time_list):
-
+    pass
 
 
 def write_csv(dataframe, out_dir):

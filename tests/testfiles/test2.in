@@ -1,6 +1,6 @@
 0:UNIVERSE_INPUT
-topology_path=testtop.psf
-trajectory_path=testtraj.dcd
+topology_path=testfiles/testtop.psf
+trajectory_path=testfiles/testtraj.dcd
 1:RESID_NUMBER_PAIRS
 1 5
 3 4

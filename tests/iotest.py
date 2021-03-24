@@ -4,7 +4,7 @@ from analysisclass.selection.io import *
 
 class TestIOFunctions(unittest.TestCase):
     def test_read_input0(self):
-        input0 = read_input('test0.in')
+        input0 = read_input('testfiles/test0.in')
         self.assertEqual(input0['topology'], 'md_in/testtop.psf')
         self.assertEqual(input0['trajectory'], ['md_in/testtraj.dcd'])
         self.assertEqual(input0['residues'], [[1, 5], [3, 4]])
@@ -15,7 +15,7 @@ class TestIOFunctions(unittest.TestCase):
         self.assertEqual(input0['out_dir'], 'md_out')
 
     def test_read_inputs1(self):
-        input1 = read_input('test1.in')
+        input1 = read_input('testfiles/test1.in')
         self.assertEqual(input1['topology'], 'md_in/testtop.psf')
         self.assertEqual(input1['trajectory'], ['md_in/testtraj.dcd', 'md_in/testtraj.dcd'])
         self.assertEqual(input1['residues'], [[1, 2], [3, 5], [2, 7], [8, 2]])
@@ -30,6 +30,7 @@ class TestIOFunctions(unittest.TestCase):
         time_list = [0, 1, 2, 3, 4]
         data = write_dataframe(results, time_list)
 
+    # TODO write csv tests
     def test_write_csv(self):
         pass
 
