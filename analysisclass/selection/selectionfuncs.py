@@ -1,7 +1,6 @@
 import MDAnalysis as mda
 
 
-# TODO rewrite to take list of trajecotry paths
 def build_universe(topology_path, *args):
     universe = mda.Universe(topology_path, args)
     return universe
@@ -19,6 +18,10 @@ def select_resid_ca(res_num, universe):
     selection = 'resid ' + str(res_num) + ' and name CA'
     res_ca = universe.select_atoms(selection)
     return res_ca
+
+
+def select_atom(atom_num, universe):
+    pass
 
 
 def save_resid_cm(res_num, universe):

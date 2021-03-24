@@ -3,12 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def remove_return(string):
+def remove_return(string: str) -> str:
     ret_line = string.split('\n')
     return ret_line[0]
 
 
-def read_input(path):
+def read_input(path: str) -> dict:
     # Input data structures
     section = 0
     topology_path = ''
@@ -118,16 +118,16 @@ def write_dataframe(result_dict, time_list):
     return result_frame
 
 #TODO finish time array function
-def write_time_array(result_dict, time_list):
+def write_time_array(result_dict: dict, time_list: list) -> np.array():
     pass
 
 
-def write_csv(dataframe, out_dir):
+def write_csv(dataframe: pd.DataFrame, out_dir: str) -> None:
     dataframe.to_csv(out_dir, header=True)
     return
 
 
-def save_figure(csv_path):
+def save_figure(csv_path: str) -> None:
     def read_csv(path):
         file_headers = []
 
@@ -145,14 +145,14 @@ def save_figure(csv_path):
         csv_data = np.genfromtxt(path, delimiter=',', skip_header=1)
         return csv_data, file_headers
 
-    def build_figure(data, figure_headers, png_name):
+    def build_figure(data: np.array(), figure_headers: list, png_name: str) -> None:
         for col in range(0, len(headers) - 1):
             fig = plt.plot(data[:, col + 1], label=figure_headers[col])
             plt.legend()
 
         plt.xlabel('Time (ps)')
         plt.ylabel('Pair Distance (angstrom)')
-        plt.savefig(png_name, dpi=600)
+        plt.savefig(png_name, dpi=1200)
         return
 
     dist_data, headers = read_csv(csv_path)
