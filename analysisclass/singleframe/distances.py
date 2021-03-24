@@ -14,7 +14,6 @@ def atom_dist(cooridnates_a, cooridnates_b):
     return distance
 
 
-# TODO write dist vec tests
 def dist_vec(atom_group_a, atom_group_b):
     distances = distance_array(atom_group_a, atom_group_b)
     dist_vector = distances.flatten()
