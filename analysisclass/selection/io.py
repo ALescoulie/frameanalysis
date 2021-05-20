@@ -160,3 +160,7 @@ def save_figure(csv_path: str) -> None:
     file_name = csv_path[0] + '.png'
     build_figure(dist_data, headers, file_name)
     return
+
+
+def write_spat_in(residue_coords, out_dir):
+    pass

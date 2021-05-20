@@ -1,4 +1,5 @@
 import MDAnalysis as mda
+import pandas as pd
 
 
 def build_universe(topology_path, *args):
@@ -62,3 +63,18 @@ def build_reslist_dict(res_pair_list):
         res_pairs[key_name] = []
     res_keys = list(res_pairs.keys())
     return res_pairs, res_keys
+
+
+def save_xyz_coords(atom_group):
+    atom_list = []
+    coords_array = []
+    for atom in atom_group:
+        atom_list.append(atom)
+        coords_array.append(atom.positions)
+
+    coords = dict.fromkeys(atom_list)
+    for i in range(len(atom_list)):
+        coords[atom_list[i]] = coords_array[i]
+
+    xyz = pd.DataFrame(coords)
+    return xyz

@@ -9,7 +9,7 @@ class SelectionTest(unittest.TestCase):
         self.assertEqual(len(unv.trajectory), 98)
         self.assertEqual(len(unv.residues), 214)
 
-    def test_build_unv1(self):
+    def test_build_universe1(self):
         trajectories = ['testfiles/testtraj.dcd', 'testfiles/testtraj1.dcd']
         unv = build_universe('testfiles/testtop.psf', trajectories)
         self.assertEqual(len(unv.residues), 214)
@@ -50,6 +50,11 @@ class SelectionTest(unittest.TestCase):
             dict_keys.append(key)
         self.assertEqual(dict_keys, resid_keys)
 
+    def test_save_xyz_coords(self):
+        unv = build_universe('testfiles/testtop.psf', 'testfiles/testtraj.dcd')
+        met = select_resnum_atoms(1, unv)
+        met_xyz = save_xyz_coords(met)
+        print(met_xyz)
 
 if __name__ == '__main__':
     unittest.main()
